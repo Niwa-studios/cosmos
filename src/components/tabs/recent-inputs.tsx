@@ -1,4 +1,5 @@
 // src/TransactionTable.js
+import { startAndEnd } from "@/utils/functions";
 import React from "react";
 
 const transactions = [
@@ -30,10 +31,15 @@ const RecentInputs = () => {
           </thead>
           <tbody>
             {transactions.map((transaction, index) => (
-              <tr key={index} className="text-white tracking-[2.5%] text-xl leading-5">
+              <tr
+                key={index}
+                className="text-white tracking-[2.5%] text-xl leading-5"
+              >
                 <td className="pl-4 py-4">{transaction.time}</td>
                 <td className="py-4">
-                  <span className="px-2 rounded-[100px] bg-white-0.09">{transaction.from}</span>
+                  <span className="px-2 rounded-[100px] bg-white-0.09 whitespace-nowrap">
+                    {startAndEnd(transaction.from)}
+                  </span>
                 </td>
                 <td className="text-right py-4 pr-4">{transaction.amount}</td>
               </tr>
