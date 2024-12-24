@@ -3,6 +3,7 @@ import Tabs from "@/components/tabs";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import NarrationSound from "@/components/narration-sound";
 
 export default function Home() {
   const [showLanding, setShowLanding] = useState(true);
@@ -88,6 +89,14 @@ export default function Home() {
             height="100%"
           />
         </motion.div>
+        <div className="absolute top-0 z-0 left-0 right-0 bottom-0 overflow-hidden hidden">
+          <iframe
+            src="https://my.spline.design/solarsystem-fa63cf390722f9fed64d7583b8894fa5/"
+            width="100%"
+            height="100%"
+          ></iframe>
+        </div>
+        <NarrationSound playSound={!showLanding} />
         <div className="absolute bottom-0 right-0 left-0 w-full">
           <Footer />
         </div>
@@ -118,6 +127,34 @@ export default function Home() {
         exit={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2.5 }}
         className="fixed top-0 animate-spin-slow-reverse z-0"
+      >
+        <Image
+          src="/assets/svgs/stars-bg.svg"
+          width={1440}
+          height={1037.19}
+          alt="Stars"
+        />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 1 }}
+        animate={{ opacity: 1, scale: animateScreen ? 2.5 : 1 }}
+        exit={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2.5 }}
+        className="fixed top-0 animate-spin-slow-reverse z-0"
+      >
+        <Image
+          src="/assets/svgs/stars-bg.svg"
+          width={1440}
+          height={1037.19}
+          alt="Stars"
+        />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 1 }}
+        animate={{ opacity: 1, scale: animateScreen ? 2.5 : 1 }}
+        exit={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2.5 }}
+        className="fixed top-0 animate-spin-slow z-0"
       >
         <Image
           src="/assets/svgs/stars-bg.svg"
